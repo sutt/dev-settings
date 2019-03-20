@@ -1,0 +1,36 @@
+-----------------------------------------
+3.20.2019, freezing VSCode & Extensions
+-----------------------------------------
+
+Version: 1.32.3 (user setup)
+Commit: a3db5be9b5c6ba46bb7555ec5d60178ecc2eaae4
+Date: 2019-03-14T22:49:40.955Z
+Electron: 3.1.6
+Chrome: 66.0.3359.181
+Node.js: 10.2.0
+V8: 6.6.346.32
+OS: Windows_NT ia32 10.0.17134
+
+
+Languages -------------------------------
+
+Python 2.7.13 32-bit
+Python 3.7.2  64-bit
+
+Extensions -------------------------------
+
+(MS) Language Server languageServer.0.1.80
+
+Name: Python
+Id: ms-python.python
+Description: Linting, Debugging (multi-threaded, remote), Intellisense, code formatting, refactoring, unit tests, snippets, and more.
+Version: 2019.2.5558
+Publisher: Microsoft
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-python.python
+
+Name: C#
+Id: ms-vscode.csharp
+Description: C# for Visual Studio Code (powered by OmniSharp).
+Version: 1.17.1
+Publisher: Microsoft
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp

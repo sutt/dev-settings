@@ -1,0 +1,68 @@
+{
+    // Python Path + Language Server -------------------------------
+    //  jedi=True works best for py3-based workspace discovery
+    //  where non-jedi can't find non-dot imports.
+    //  but jedi lacks ability for GoTo Tag, and we need to implement
+    //  CTags to get that functionality
+
+    "python.jediEnabled": false,
+    
+    "python.pythonPath": "python3",
+
+    //might need to be double backslash, idk?
+    // "python.pythonPath": "C:/Users/wsutt/AppData/Local/Programs/Python/Python37/python3.exe",
+    
+    
+    
+    //Linter Config -------------------------------------------------
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    
+    // turn on: strict problem surfacing
+    // "python.linting.pylintArgs": ["--errors-only"],
+    
+    //default linting:
+    "python.linting.pylintArgs": [
+                                  "--disable=all", 
+                                  "--enable=F,E",
+                                  "--enable=unreachable",
+                                  "--enable=duplicate-key",
+                                  "--enable=unnecessary-semicolon",
+                                  "--enable=global-variable-not-assigned",
+                                  "--enable=unused-variable",
+                                  "--enable=binary-op-exception",
+                                  "--enable=bad-format-string",
+                                  "--enable=anomalous-backslash-in-string",
+                                  "--enable=bad-open-mode",
+                                //   "--disable=print-statement",  //only for python2
+                                ],
+
+    
+    //Bug in language server? https://github.com/Microsoft/vscode-python/issues/3840
+    //only needed with jedi=off ?
+    "python.analysis.disabled": [
+        "unresolved-import"
+    ],
+
+    // "python.linting.pylintArgs": ["--disable=unused-import"],
+
+    
+    //Other Settings -----------------------------------
+    
+    "python.workspaceSymbols.ctagsPath":"C:/Users/wsutt/Desktop/files/ctags/exuberant_ctags/simple/ctags.exe",
+
+    // "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/*.code-workspace": true,
+        "**/*.cache": true,
+        "**/*.ipynb_checkpoints": true,
+        "**/__pycache__": true,
+        "**/.pytest_cache":true,
+        "**/*.pyc": true
+    },
+    
+    
+}

@@ -1,0 +1,223 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Integrated Terminal/Console",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": true,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${file}",
+            "cwd": "",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "debugOptions": []
+        },
+        {
+            "name": "py2-basic",
+            "type": "python",
+            "request": "launch",
+            // "stopOnEntry": true,
+            "pythonPath": "C:\\Python27\\python.exe",
+            "program": "${file}",
+            "cwd": "basic_engine/",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "py3-file",
+            "type": "python",
+            "request": "launch",
+            // "stopOnEntry": true,
+            "pythonPath": "C:\\Users\\wsutt\\AppData\\Local\\Programs\\Python\\Python37\\python3.exe",
+            "program": "${file}",
+            "cwd": "basic_engine/tools/",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "args": []
+        },
+        {
+            "name": "py3-module",
+            "type": "python",
+            "request": "launch",
+            // "stopOnEntry": true,
+            "pythonPath": "C:\\Users\\wsutt\\AppData\\Local\\Programs\\Python\\Python37\\python3.exe",
+            "module": "tools.${fileBasenameNoExtension}",
+            "cwd": "basic_engine/",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "args": []
+        },
+        {
+            "name": "py3-module",
+            "type": "python",
+            "request": "launch",
+            // "stopOnEntry": true,
+            "pythonPath": "C:\\Users\\wsutt\\AppData\\Local\\Programs\\Python\\Python37\\python3.exe",
+            "module": "tools.${fileBasenameNoExtension}",
+            "cwd": "basic_engine/",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "args": []
+        },
+        {
+            "name": "basic1",
+            "type": "python",
+            "request": "launch",
+            // "stopOnEntry": true,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${file}",
+            "cwd": "",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env"
+        }
+
+        {
+            "name": "works-in-ppd",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": true,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${file}",
+            "cwd": "",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            // "args": [ "--subprocColorPlot"
+            // ]
+        },
+        {
+            "name": "works in ppd 2",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${file}",
+            "cwd": "",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "args": [
+                "--file"
+                // ,"data/nov2018/output3.proc1.avi"
+                ,"data/proc/raw/oct20/output4.avi"
+                ,"--startplay"
+                ,"--track"
+                ,"--algoenum"
+                ,"2"
+                // ,"data/proc/hello-training-data/output4.proc3.avi"
+                // ,"data/proc/nov2/output4.avi"
+                // ,"data/proc/hello-training-data/output4.avi"
+                // ,"data/proc/hello-training-data/output6.avi"
+                // ,"data/proc/demo-proc/output4.proc2tmp.avi"
+                // ,"data/proc/demo-proc/output4.proc2tmp.proc8.avi"
+                // ,"data/proc/hello-training-data/output7.avi"
+                // ,"data/proc/demo-proc/output4.proc2.avi"
+                // ,"--showscoring"
+                // ,"--scoringenum"
+                // ,"1"
+                // ,"--scoreoff"
+                // ,"--startplay"
+                // ,"--track"
+                // ,"data/proc/demo-proc/output7.proc1.avi"
+                // ,"--showscoring"
+                // ,"data/proc/demo-proc/"
+                // ,"--showscoring"
+                // ,"data/proc/demo-proc/"
+                // ,"--showscoring"
+                // ,"data/proc/demo-proc/output4.proc2.avi"
+                // ,"data/proc/hello-training-data/output4.avi"
+                // ,"data/test/guiview/write_time/output4.avi"
+                // ,"--nodelay"
+                ,"--nogui"
+                // ,"--test"
+                // ,"write_time"
+                // ,"--noshow"
+                // ,"--file"
+                // ,"data/proc/hello-training-data/output4.avi"
+            ]
+        },
+        {
+            "name": "Integrated Terminal/Console",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": true,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${file}",
+            "cwd": "",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "debugOptions": []
+        },
+        {
+            "name": "Python: profile_test.py",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": true,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${file}",
+            "cwd": "",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "debugOptions": [],
+            "args": [
+                "--singledemo"
+            ]
+        },
+        {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceRoot}/cpoke/bin/Debug/<target-framework>/<project-name.dll>",
+            "args": [],
+            "cwd": "${workspaceRoot}/cpoke",
+            "stopAtEntry": false,
+            "externalConsole": false
+        },
+        {
+            "name": ".NET Core Launch (web)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceRoot}/bin/Debug/<target-framework>/<project-name.dll>",
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "stopAtEntry": false,
+            "launchBrowser": {
+                "enabled": true,
+                "args": "${auto-detect-url}",
+                "windows": {
+                    "command": "cmd.exe",
+                    "args": "/C start ${auto-detect-url}"
+                },
+                "osx": {
+                    "command": "open"
+                },
+                "linux": {
+                    "command": "xdg-open"
+                }
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceRoot}/Views"
+            }
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command.pickProcess}"
+        }
+    ]
+}

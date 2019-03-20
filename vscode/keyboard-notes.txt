@@ -1,0 +1,402 @@
+New Stuff:
+
+    ctrl+alt+o         decrease view size (view=editor or panel or sidebar)
+    ctrl+alt+p         increase view size
+    shift+alt+u        select to previous line (in terminal)  [pseudo-useful]
+    shift+alt+y        select to previous command (in terminal) [pseduo-useful]
+    
+    escape             in regular windows shell, clears the current line of text
+
+Main Toggling:
+
+    alt+p               editors same width
+    alt+l               editors reverse orientation
+    alt+m               editor in focus maximized
+
+    ctrl+alt+p          panel toggle max width
+    ctrl+alt+l          panel reverse orientation
+    ctrl+alt+m          panel toggle max width
+
+    ctrl+j              toggle panel
+
+
+
+Toggling panels:
+
+    alt+q               focus terminal  (custom)
+
+    ctrl+shift+~        new terminal
+    
+    ctrl+j:             toggle panel
+    ctrl+b:             toggle sidebar
+    ctrl+~:             toggle terminal
+    ctrl+shft+y:        toggle debug console
+
+    alt+shift+0         toggle vert/horiz pos   (only for editor?)
+    
+    ctrl+shft+c:        open native terminal
+
+    ctrl+shift+u        focus to 'Output' panel
+    ctrl+shift+m        focus to 'Problems' panel
+
+
+Actions in terminal:
+
+    ctrl+shft+~:        open new terminal
+    
+    up/down             history
+    ?                   clear selection (e.g. "esc")
+    
+    alt+a               select all output
+    alt+s               select output through previous command
+    
+    ctrl+k              clear terminal output
+
+    ctrl+shift+pgup     scroll output, step 1 line
+    shift+pgup          scroll output, step 1 page
+    ctrl+home           scroll to beginning
+    
+    ctrl+shift+up       resize terminals panes      
+    alt+shift+up        move to next terminal
+
+    ctrl+\:             split terminal
+    
+    alt+k               kill the active terminal instance
+    
+    ctrl+c+enter        send keyboard interrupt [must type enter]
+                        [this can vary on shell and if wsl is on]
+
+    
+Actions in editor:
+
+    ctrl+alt+right      move file editor to right
+    alt+z               toggle word wrap
+    ??alt+p                   50/50 view
+
+
+Actions while debugging:
+
+    f9                  toggle breakpoint
+    TODO-set this       // - editor.debug.action.runToCursor
+    TODO                view breakpoints
+    TODO                view callstack
+    TODO                view variables
+
+
+Actions for Recipes:
+
+    ctrl+win+w          toggle tabs
+
+
+Misc Helpful:
+
+    ctrl+y:             redo
+    
+    ctrl+h:             start find replace
+    ctrl+alt+enter:     replace all
+
+    ctrl+shift+space:   toggle param hints
+
+    ctrl+f              find in terminal
+
+    ctrl+p              open file
+    
+    ctrl+q              open quick view (to select any window)
+    
+
+Other
+
+    https://vscodecandothat.com/
+    discuss: https://news.ycombinator.com/item?id=16891784
+    
+	really need to remap fn toggle to be always on
+	
+	F6:  		Unselect cursor from the address bar (Chrome)
+	
+	Disable Townsend's "Python for VSCode" extension: eliminate
+	the lint on launch.json bug
+
+Day 4 Thoughts
+
+    I'm using SysNative for terminal communication, is this the source of the error?
+    for WSL and for long printing?
+    
+    // Customizes which terminal to run on Windows.
+    "terminal.external.windowsExec": "C:\\WINDOWS\\Sysnative\\cmd.exe",
+
+    How does Jupyter extension alter user-settings.json of
+    "jupyter.appendResults": false,
+
+        https://github.com/DonJayamanne/vscodeJupyter/search?utf8=%E2%9C%93&q=Append+Results&type=
+
+        https://github.com/DonJayamanne/vscodeJupyter/blob/508ca40c862f37b0182d55108534ea688d5d4173/browser/src/containers/App/index.tsx
+
+
+        
+
+Day Jupyter:
+
+    Docs:
+    https://marketplace.visualstudio.com/items?itemName=donjayamanne.jupyter
+    https://github.com/DonJayamanne/pythonVSCode/wiki/Jupyter-Examples
+
+    Tab     when going into Results page with long image
+    
+        this allow you to select 'Append Results' or scroll
+        along the length of the picture, a "second-level 
+        scrolling bar" inside the Editor window.
+
+    In a .py, use #%%
+
+        e.g. tools/demo-jupyter.py
+
+    ctrl+alt+enter    run selected text in python kernel
+
+    shift+alt+p, >jupyter ...   haven't got these cmds to work yet
+
+    Hmm... but Results dissapear after leaving tab
+
+
+
+
+Day 3+ Notes:
+
+    Here's where centerLayout should fire, but if it does, I haven't noticed
+    https://github.com/Microsoft/vscode/blob/d9e89cd0ba601bf85fbf27a9790b2809b3c99fae/src/vs/workbench/electron-browser/workbench.ts
+
+Misc VScode info:
+
+    with update 1.22.1
+    Find all references works now across mulitple source files
+    Peek / go to definition now works as expected again
+    log-points added to bedug capabilities
+
+
+Day 2 Requests:
+
+    x remove margin with Glyph?
+        "editor.glyphMargin": false,
+
+    x remove menu bar
+        "window.menuBarVisibility": "hidden",
+
+    50/50 editors  [view: Even Editor Groups Width]
+        // - workbench.action.evenEditorWidths
+
+    BIG - how to mark in integrated terminals
+
+    BIG how to chain commands?
+    
+    Q: Why is the terminal not working when running the 32-bit Windows client on 64-bit Windows?
+    The easy fix for this is to use the 64-bit version. If you must use the 32-bit version you need to use the sysnative path when configuring your paths instead of System32:
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",
+    
+    in bash / integrated terminal, less path at carrot
+
+    alt+p for evensplit
+    alt+m for maximizeEditor
+
+    alt+m toggle maximize editor
+
+    can do toggle panel and toggle EditorLayout in one swoop?
+
+    toggle word wrap in terminal?
+
+    FUCK - why so slow in terminal all of a sudden?
+        
+        https://github.com/Microsoft/vscode/issues/10328
+
+        xterm.js may be culprit?
+
+        commented here:
+        https://github.com/Microsoft/vscode/issues/40502
+    
+    
+
+Known stuff
+
+    
+    view: toggle panel position (switch b/w vert and horiz)
+    
+    "workbench.action.focusFirstEditorGroup"
+
+    //how to use views as commands
+    "command": "workbench.actions.view.problems" },
+    
+    // - workbench.action.terminal.scrollToNextCommand
+    // - workbench.action.terminal.scrollToPreviousCommand
+    // - workbench.action.terminal.selectAll
+    
+    // - workbench.action.joinTwoGroups
+    // - workbench.action.maximizeEditor
+    // - workbench.action.minimizeOtherEditors
+
+    // - workbench.action.terminal.selectDefaultShell
+
+    // - workbench.action.terminal.runSelectedText
+
+    // - workbench.debug.panel.action.clearReplAction
+
+    // - editor.debug.action.runToCursor
+
+    // - workbench.action.closeEditorsInOtherGroups
+    // - workbench.action.closeEditorsToTheLeft
+    // - workbench.action.closeEditorsToTheRight
+    // - workbench.action.closeOtherEditors
+    // - workbench.action.closePanel
+
+    // - workbench.action.toggleMaximizedPanel
+    // - workbench.action.maximizeEditor
+
+    // - workbench.action.toggleCenteredLayout
+
+    // - workbench.action.terminal.focus
+    // - workbench.action.terminal.focusAtIndex1
+    // - workbench.action.terminal.focusAtIndex2
+    // - workbench.action.terminal.focusAtIndex3
+
+    // - workbench.action.terminal.kill
+
+    // - workbench.action.terminal.focusNext
+    // - workbench.action.terminal.focusPrevious
+    // - workbench.action.terminal.focusAtIndex1
+    // - workbench.action.terminal.focusAtIndex2
+
+    // - workbench.action.switchWindow
+    
+    "&&" - for chaining, used only in "when" not "command"
+
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
+
+    "Maximize editor and hide sidebar"
+
+    { "key": "home",                  "command": "list.focusFirst",
+                                     "when": "listFocus && !inputFocus" },
+
+    { "key": "alt+enter",             "command": "debug.openBreakpointToSide",
+                                     "when": "breakpointsFocused" },
+
+    Opens a whole new VScode
+    { "key": "ctrl+shift+n",          "command": "workbench.action.newWindow" },
+
+    // - workbench.action.terminal.selectDefaultShell
+    // - workbench.action.toggleCenteredLayout
+    // - workbench.action.toggleMaximizedPanel
+    // - workbench.debug.action.focusRepl
+
+    // - toggle.diff.editorMode
+
+    // - workbench.action.toggleMenuBar
+
+    // - python.createTerminal
+    // - python.execInTerminal
+    // - editor.debug.action.selectionToRepl
+
+    While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. The terminal.integrated.commandsToSkipShell setting can be used to get around this. It contains an array of command names whose key bindings will skip processing by the shell and instead be processed by the VS Code key binding system. By default, this includes all terminal key bindings in addition to a select few commonly used key bindings.
+
+    Turn off autocomplete for .txt
+            {
+        "[typescript]": {
+            "editor.formatOnSave": true,
+            "editor.formatOnPaste": true
+        },
+        "[markdown]": {
+            "editor.formatOnSave": true,
+    
+    Maybe wsl doesnt work in sys32 cmd but will work in sys64 cmd
+
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    I'm using mintty mingw64 as a standalone git terminal
+        "C:\Program Files\Git\git-bash.exe" --cd-to-home
+
+    Note: Git/bin/bash.exe   (does work for WSL)
+          Git/git-bash.exe  (doesn't work for WSL, it's the one)
+
+    cmd properties:
+        %windir%\system32\cmd.exe
+
+How to?
+
+    mark/copy on vscode terminals
+        mark/copy on debug console
+
+    open different types of terminals
+        need to add different types of editors in workspace settings
+
+    Git diff'ing, etc...
+
+    maximizeEditor
+
+    go to a 50/50 view
+
+    resize terminal with keys?
+    why is tab broken?
+    While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. The terminal.integrated.commandsToSkipShell setting can be used to get around this.
+
+    VSCode terminal howto's
+    http://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html
+    
+
+    get wsl from integrated cmd
+        https://stackoverflow.com/questions/44450218/how-do-i-use-bash-on-ubuntu-on-windows-wsl-for-my-vs-code-terminal
+
+        you can use bash to get wsl to run
+
+        weird: wsl runs from cmd (but not in vscode)
+                while wsl does not run in standalone bash terminal (but does in vscode)
+
+    (use "when": "inDebugMode" for below:)
+
+        walkaround debug window easier
+            focus onto breakpoints specifically
+
+        Add a breakpoint!
+            add a condition to a breakpoint
+
+        run to cursor f8?
+
+
+    toggle line number viz
+
+        workspace settings
+            editor.lineNumbers : off / on
+
+        but how to add that to a hotkey?
+            try default
+            try workbench.action.editor.toggleLineNumbers (?)
+
+        but how to remove that margin?
+
+        { "key": "ctrl+shift+t",          "command": "workbench.action.reopenClosedEditor" },
+
+
+
+Questions:
+
+    What exactly is a split terminal? like a new putty window session?
+
+    What is a .code-worksapce file do?
+
+Advanced:
+
+    get cv2 code completion / hints / definitions
+
+    one button half screen, full vertical height like vim
+
+    Jump into debugging an assert fail in one move
+
+    Putty terminal?
+
+    adding arguments to debug
+
+    wsl integrated terminal
+
+    tasks
+    https://code.visualstudio.com/docs/editor/tasks
+
+
+
+
+Bugs:
+
+    peek / goto definition in python is going to import

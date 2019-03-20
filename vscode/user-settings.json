@@ -1,0 +1,62 @@
+{
+    //I Like these settings, and they are universal
+    "workbench.activityBar.visible": false,
+    "workbench.statusBar.visible": false,
+    "workbench.editor.showTabs": true,
+    "window.zoomLevel": 0,
+    "workbench.editor.enablePreview": false,
+    "window.menuBarVisibility": "toggle",
+    "workbench.iconTheme": "vs-minimal",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        // "**/*.code-workspace": true,
+        "**/*.cache": true,
+        "**/*.ipynb_checkpoints": true,
+    },
+    
+    //I like them...but switchable
+    "editor.minimap.enabled": false,
+    "editor.lineNumbers": "on",
+    "git.enabled": false,
+    "editor.glyphMargin": false,
+    "problems.decorations.enabled": true,
+    "problems.autoReveal": true,
+    "workbench.settings.useSplitJSON": false,
+    "explorer.autoReveal": false,
+    
+    //updating
+    "update.mode": "manual",
+    "extensions.autoUpdate": false,
+    
+    
+
+    //Seem important but I'm not sure
+    // "python.linting.pylintArgs": ["--errors-only"],
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": false,
+    "python.linting.enabled": false,
+    "python.linting.lintOnSave": false,     //for bug where changing launch causes pylint to appear
+    "editor.codeLens": false,
+    
+    // "python.analysis.logLevel": "None",
+
+    //Workspace specific
+
+    // "python.jediEnabled": false,   
+    //note: this needs forward slashes
+    //"python.workspaceSymbols.ctagsPath":"C:/Users/wsutt/Desktop/Files/ctags/exuberant_ctags/simple/ctags.exe",
+    
+    // "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
+    // "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    // "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    // "terminal.integrated.cwd": "basic_engine"
+    
+    
+    
+    
+}
