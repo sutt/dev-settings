@@ -5,7 +5,7 @@
     //  but jedi lacks ability for GoTo Tag, and we need to implement
     //  CTags to get that functionality
 
-    "python.jediEnabled": false,
+    "python.jediEnabled": true,
     
     "python.pythonPath": "python3",
 

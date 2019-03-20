@@ -1,0 +1,104 @@
+
+3.20.19
+
+	Use Integrated Terminal:
+	
+	- helps when reading error msg from console into browsing your code
+		
+	-> need to completely replicate functionality of separate window consoles into vscode functionality:
+		
+		
+		alt+q			focus into/out-of terminal
+		ctrl+j			hide panel
+		
+		alt+L			switch editor vert/horiz layout
+		ctrl+alt+L		switch panel  vert/horiz layout
+		
+		ctrl+alt+p		increase focused window size
+		ctrl+alt+o		decrease focused window size
+		
+		
+		in terminal editing		[if using regular windows cmd, not bash]
+		
+		
+		esc				delete current line  
+		
+		ctrl+c			copy (on editing line or in terminal output)
+		ctrl+v			paste (on editing line or in terminal output)
+		
+		ctrl+c+enter	send "ctrl+c" cmd to terminal process
+		
+		TODO
+		scrolling+marking
+		
+		moving between consoles
+		
+		creating new consoles
+		
+		ctrl+shift+`	create new console
+			how to create a new console at current cwd (like >start cmd)
+		
+		
+	
+	Examine Problems in workspace:
+	
+	- helps to do a high level validity check on solution
+	
+	
+		ctrl+alt+m		view problems panel
+		
+		f8				cursor to next problem
+		
+		?				view the problem report for a highlighted region of code
+		
+		
+		other workflow notes:
+		
+		- problem panel populates with open files in editors; close files to remove from panel
+		
+		- launch command palette (ctrl+shift+p) > Run Linting : executes lint on that file.
+		
+		- use workspace settings.json to comment/edit lines in python.linting.pylintArgs- list to suppress overwhelmingly common warnings
+		
+		todos:
+		
+		- how to mark problems specific lines of problems to ignore for the future; but still be able to examine them by reverting the ignore?
+		
+
+	Debugging:
+	
+		TODO: describe:
+			launch.json
+			args
+			cwd
+			stopOnEntry bug
+			
+			running a module for debug (python -m x.x)
+				e.g. some indv tests in chess?
+			
+			how to set breakpoints before launch - HOWTO?
+	
+	
+	Use a VSCode at half screen effectively 
+	
+	- helpful when you must interface with an outside terminal or second workspace
+	
+	- must be able to quickly change two editors + possible terminal + possible side-bar of a large workspace display
+	
+		HOWTO?
+		- probably through mutli-cmd / macros extensions
+		
+		Best So Far:
+		close panel + close sidebar - ctrl+j, ctrl+b (if nec.)
+		editors on top of each		- alt+L (if nec.)
+		maximize on editor			- alt+m 
+		remove full-screen			- f11 (if nec.)
+		snap to half-screen			- win+left
+	
+	
+	Other panel operations
+		
+		ctrl+shift+m		view problems panel
+		ctrl+shift+y		view debug console
+		ctrl+shift+u		view output panel (e.g. python tools logging)
+		

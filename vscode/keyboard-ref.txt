@@ -1,11 +1,14 @@
-New Stuff:
+New Stuff (3.20.19):
 
     ctrl+alt+o         decrease view size (view=editor or panel or sidebar)
     ctrl+alt+p         increase view size
-    shift+alt+u        select to previous line (in terminal)  [pseudo-useful]
-    shift+alt+y        select to previous command (in terminal) [pseduo-useful]
+	
+	escape             in regular windows shell, clears the current line of text
     
-    escape             in regular windows shell, clears the current line of text
+	//these are likely to change
+	
+	shift+alt+u        select to previous line (in terminal)  [pseudo-useful]
+    shift+alt+y        select to previous command (in terminal) [pseduo-useful]
 
 Main Toggling:
 
@@ -104,6 +107,11 @@ Misc Helpful:
     ctrl+q              open quick view (to select any window)
     
 
+
+	
+	
+Misc --------------------------------------------------------------------------	
+	
 Other
 
     https://vscodecandothat.com/
@@ -157,36 +165,6 @@ Day Jupyter:
     Hmm... but Results dissapear after leaving tab
 
 
-
-
-Day 3+ Notes:
-
-    Here's where centerLayout should fire, but if it does, I haven't noticed
-    https://github.com/Microsoft/vscode/blob/d9e89cd0ba601bf85fbf27a9790b2809b3c99fae/src/vs/workbench/electron-browser/workbench.ts
-
-Misc VScode info:
-
-    with update 1.22.1
-    Find all references works now across mulitple source files
-    Peek / go to definition now works as expected again
-    log-points added to bedug capabilities
-
-
-Day 2 Requests:
-
-    x remove margin with Glyph?
-        "editor.glyphMargin": false,
-
-    x remove menu bar
-        "window.menuBarVisibility": "hidden",
-
-    50/50 editors  [view: Even Editor Groups Width]
-        // - workbench.action.evenEditorWidths
-
-    BIG - how to mark in integrated terminals
-
-    BIG how to chain commands?
-    
     Q: Why is the terminal not working when running the 32-bit Windows client on 64-bit Windows?
     The easy fix for this is to use the 64-bit version. If you must use the 32-bit version you need to use the sysnative path when configuring your paths instead of System32:
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",

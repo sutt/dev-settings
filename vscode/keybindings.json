@@ -96,7 +96,6 @@
     //this works for editors+panel+sidebar
     "key": "ctrl+alt+o",    
     "command": "workbench.action.decreaseViewSize"
-    "command": "-workbench.action.terminal.clear"
     
 },
 {

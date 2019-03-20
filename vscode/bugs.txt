@@ -1,0 +1,21 @@
+
+3.20.19
+
+- unresolved import is highlighted as a problem:
+	https://stackoverflow.com/questions/53939751/pylint-unresolved-import-error-in-visual-studio-code
+
+		
+		OptionA:
+		I was getting this problem because I was opening VScode in my project's root dir, but the main code was in a nested SRC dir. VSCode won't look for modules there by default. I fixed the import-resolve issues in VSCode by setting the env variable PYTHONPATH to include the path to SRC in my local .env file, and I got VSCode to recognize that setting by including "python.envFile": "${workspaceRoot}/.env" in my .vscode/settings.json file. This was a useful read.
+		
+		OptionB:
+		In the meantime, I silenced these messages since they were causing actual linting issues to get lost in the noise by adding this to my settings:
+			"python.analysis.disabled": [
+				"unresolved-import"
+			]
+	
+		which points here:
+		https://github.com/Microsoft/vscode-python/issues/3840
+
+			which points here
+			https://code.visualstudio.com/docs/python/environments#_use-of-the-pythonpath-variable

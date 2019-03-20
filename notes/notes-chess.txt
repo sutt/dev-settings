@@ -1,0 +1,308 @@
+    Commands:
+
+        "flask" serverA.py as of 10am 8/23
+        In WSL, in api/ directry:
+            >export FLASK_APP=flask-server.py
+            >flask run
+        In cmd, from any directory:
+            >curl 127.0.0.1:5000/get_position_ascii/
+                (should display a printout of board)
+            >curl 127.0.0.1:5000/set_position/e2e4-e7e6
+                (should print "position set.")
+            >curl 127.0.0.1:5000/best_move/default
+                (should return "d2d4")
+        Or, in browser, simply enter those curl url into address bar.
+        use /get_position/ not get_position_ascii for HTML formatting:
+            http://127.0.0.1:5000/get_position/
+
+    Git
+
+        Amend (Previous) Commit:
+            >git add lib_stockfish.py
+            >git commit --amend --no-edit
+            >git push -f origin master
+
+        View Diff in Staged files
+            >git diff --staged
+
+        Get rid of untracked files on git status
+            >git ls-files --others --exclude-standard >> .gitignore
+                - or -
+            >git status -uno
+
+        Stashing:
+            >git stash list         [view things in stash]
+            >git stash save         [put changes in the stash]
+            >git stash apply        [takes things out of stash]
+            >git stash drop         [removes an entry from stash]
+
+        Diffing Commits:
+            >git log                       
+            >git diff 6char-old 6char-new  [each commit is 6chars]
+            
+        
+        Squashing:
+            >git rebase -i HEAD~4
+
+                [in vi put 'squash' next to the commits you want]
+
+                >ESC : wq  to save and exit vi
+
+            If the commits have already been pushed to master:
+                
+                >git push origin branch-name --force
+
+            Fixing Squash - say an error of the following occurs:
+
+                error: The following untracked working tree files would be overwritten by merge:
+                Please move or remove them before you merge.
+                Aborting
+
+                You'll be dropped into a diff head point, not master but: (master|REBASE-i 3/6)
+
+                [be very careful with the following as it's a file DELETER!]
+                    >git clean -f [bad-file.ext]
+
+                finally
+                    >git rebase --continue
+
+    Pytest
+
+        >pytest --collect-only      [only collect tests; don't run 'em]
+        
+        >pytest --collect-only --ignore=src/GameLog.py      [ignore particular file]
+        
+        build 'pytest.ini' and put in a directory:
+        
+        [pytest]
+        python_files = src/*.py
+        addopts = --ignore=src/GameLog.py
+
+
+
+    WSL CLI:
+
+        From Windows
+
+        >wsl        [open ubuntu vm at that directory]
+        >ubuntu     [opens ubuntu vm at home/user/]
+
+        In linux
+
+        >whoami         ["user"]
+        >printenv       [environ variables, thus FLASK_APP if it is set]
+        >which flask    [/home/user/.local/bin/flask]
+        >top            [view running processes]
+        >kill [pid]     [end process of pid]
+        >ps -A          [simple view of running processes]
+
+        
+        "kd" alias program for quick cd-navigation
+        https://gitlab.com/lloeki/dotfiles/blob/master/shell/kd
+
+    
+    WSL Console:
+
+        Keyboard shortcuts lacking in wsl-mode: 
+                
+                simply toggle wsl OFF with 'exit', 
+                then use ALT+SPACE,E,K to Mark
+                then get back in with 'wsl'
+
+        After exiting something like flask in wsl (maybe from "wsl-1-liner")
+        you'll temporarily lose your cmd history. Simply >wsl then >exit and it's
+        back.
+
+
+    Linux:
+
+        >top            [view running processes, and their pid]
+            >q          [to exit the screen]
+        >kill XXX       [XXX=pid]
+
+    Windows commands:
+
+        >type           [same as cat]
+        >del            [same as rm]
+        >move           [same as mv]
+
+    
+    WSL - calling from python.subprocess:
+
+        Need to use full-path + 'invisible' SysNative:
+
+            NOT: subprocess.call(['wsl', 'ls'])
+            YES: subprocess.call(['c:/windows/sysnative/bash.exe','ls'])
+
+        Need to separate all args/cmds that have spaces, inclduing '&&':
+
+            NOT: [..., "source ~/.profile && flask run"]
+            YES: [..., "source", "~/.profile", "&&", "flask", "run"]
+
+        
+        When calling a "wsl-1-liner", meaning putting the full command as one cmd
+        (possibly concatenated by '&&') instead of signing in to WSL with >wsl,
+        then doing stuff, you don't end up "signed-in" in linux terminology.
+        What this means is that .profile and .bashrc are not initialized in bash,
+        so some commands, like where flask is, are not possible straight-away.
+        You get around this by first fdoing ">source ~/.profile" or creating a custom
+        file and sourcing it like ">source ~/.custom_profile"
+
+        
+        Use "bin/bash -c" along with sysnative to get &&-lines to run:
+
+            subprocess.Popen(['c:/windows/sysnative/bash.exe'
+                    ,'-c' ,"source", "~/.customprofile", "&&"
+                          ,"flask", "run"])
+
+        Main weird thing: need to prepend a dummy command, here,
+        'printenv' before the other commands to get them to work:
+
+            subprocess.Popen(['c:/windows/sysnative/bash.exe'
+                                ,'-c'
+                                ,"printenv"
+                                ,"&&"
+                                ,"source"
+                                , "~/.customprofile"
+                                ,"&&"
+                                ,"flask"
+                                ,"run"
+                                ])
+
+                (maybe try double backslash path?)
+
+        Set cwd arg in Popen, otherwise the cwd is inherited from
+        the calling module:
+
+            e.g. chess/basic_engine/src/StockfishNetwork.py calls
+                 Popen for a flask app at chess/stockfish/api/serverA.py,
+                 within serverA.py, the cwd will be src/ not api/
+
+            but 
+
+                subprocess.Popen([...], cwd = "../../stockfish/api/")
+
+            will restore cwd to serverA.py's actual directory
+    
+    Python path/import
+
+        https://stackoverflow.com/questions/11536764/how-to-fix-attempted-relative-import-in-non-package-even-with-init-py
+
+        https://www.python.org/dev/peps/pep-0366/
+
+        from basic_engine/tests/:
+
+        if __name__ == '__main__' and __package__ is None:
+            sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+            from src.StockfishNetwork import StockfishNetworking
+        else:
+            #for intellisense
+            from ..src.StockfishNetwork import StockfishNetworking
+			
+    Compiling stockfish
+    
+    BASICS:
+    in WSL: cd to src/
+            make build ARCH=x86-64   (32 has an error*)
+            it's implictily using gcc
+            do "make help" to get help
+            creates .o files
+            and a stockfish (no extension) file, which is run like ./stockfish  (inside src/)
+    
+    SAVOIR-FAIRE
+
+        in WSL the line ending can get messed up:
+        so in WSL with git checkout the files or directory like
+            >git checkout -- tests/
+        this will revert line endings on the .sh files contained in that file
+        then you run the tests like this:
+        >./tests/reprosearch.sh
+
+        Keyboard shortcuts
+        https://docs.microsoft.com/en-us/previous-versions/orphan-topics/ws.11/mt427362(v=ws.11)
+        https://github.com/mintty/wsltty
+
+    
+    MORE THOUGHTS & QUESTIONS
+            
+            32bit compilation fails because usr/include/c++/5/iosfwd does not have some reference (?)
+                maybe by setting this to 5.4.0 (instead of 5) which is on this wsl-VM it would work ?
+
+                  -I DIRECTORY, --include-dir=DIRECTORY
+                  Search DIRECTORY for included makefiles.
+
+            32bit might fail b/c WSL is distributed as 64bit app
+
+            how to put files into a bin; much cleaner!
+
+            using mingw
+            http://support.stockfishchess.org/kb/advanced-topics/compiling-stockfish-on-windows
+
+    MINGW:
+
+        got mingw32
+
+        Error occurs with mingw32 (not 64):
+
+        Troubleshooting:
+
+            C:\MinGW\bin>gcc --version
+            gcc (MinGW.org GCC-6.3.0-1) 6.3.0
+        
+
+        The key to resolving thread error is to install mingw64:
+        
+            from: https://sourceforge.net/projects/mingw-w64/
+
+                in downloads: x86_64-4.9.2-release-posix-seh-rt_v3-rev1.7z
+            
+            this is put in:     c/mingw/mingw64
+
+            changing path:      C:\mingw\mingw\bin    [from c\mingw\bin]
+            and keeping path:   C:\MinGW\msys\1.0\bin\m
+
+            Run:    (and it works, creating stockfish.exe)
+            >make build ARCH=x86-32 COMP=mingw
+
+            >make clean     [to remove .o files but also removes executable if not moved/renamed]
+
+        alternate (alleged) solution:
+            https://stackoverflow.com/questions/37358856/does-mingw-w64-support-stdthread-out-of-the-box-when-using-the-win32-threading
+            https://github.com/meganz/mingw-std-threads
+
+        
+        
+    Using stockfish:
+
+        http://support.stockfishchess.org/kb/advanced-topics/uci-protocol
+        
+        SEE: in stockfish/uci/engine-interface.txt
+
+        >quit
+        >d      [view board position]
+        >go     [think about moves]
+
+        >uci    [view parameters]
+        >bench  [run some tests to see perf/timing]
+
+    Interfacing with stockfish
+
+        pip package for it
+        https://pypi.org/project/stockfish/
+
+    
+    Comparing Benchmarks 
+
+        linux64
+        ===========================
+        Total time (ms) : 6599
+        Nodes searched  : 4592766
+        Nodes/second    : 695979
+
+        win32
+        ===========================
+        Total time (ms) : 6566
+        Nodes searched  : 4592766
+        Nodes/second    : 699477
+
+        -> win32 is ~ 0.5% faster

@@ -1,0 +1,29 @@
+
+3.20.19
+
+Gettings cTags
+	
+	use exuberant-ctags (not universal-ctags)
+		https://github.com/Microsoft/vscode-python/issues/197
+		
+Py-Linters
+
+	got pylint on py3
+	run with minimal warnings, not no warnings
+	https://docs.pylint.org/en/1.6.0/features.html
+		
+	"python.linting.pylintUseMinimalCheckers": true [doesn't work]
+	instead, use:
+    "python.linting.pylintArgs": [
+                                  "--disable=all", 
+                                  "--enable=F,E",
+                                  "--enable=unreachable",
+								  
+Updates
+
+	vscode itself: 
+		in settings: "update.mode": "manual"			
+		
+	extensions: 
+		in settings: "extensions.autoUpdate": false,
+		
